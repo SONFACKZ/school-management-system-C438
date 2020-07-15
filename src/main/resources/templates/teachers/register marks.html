@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/bootstrap.css">
+<link rel="stylesheet"
+	href="/style/fontawesome-free-5.11.2-web/css/all.css">
+<link rel="stylesheet" href="/style/w3.css">
+
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	href="/vendor/font-awesome/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/fontastic.css">
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+
+<link rel="stylesheet"
+	href="/css/grasp_mobile_progress_circle-1.0.0.min.css">
+
+<link rel="stylesheet"
+	href="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+
+<link rel="stylesheet" href="/css/style.default.css"
+	id="theme-stylesheet">
+
+<link rel="stylesheet" href="/css/custom.css">
+
+<!-- <link rel="shortcut icon" href="img/favicon.ico"> -->
+<title>Add Class</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a id="toggle-btn" href="#" class="menu-btn"><i
+					class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+					<div class="brand-text d-none d-md-inline-block">
+						<span> Admin Board</span><strong class="text-primary">School
+							Management System </strong>
+					</div>
+				</a>
+			</div>
+			<div class="navbar-header "></div>
+			<form class="navbar-form navbar-right">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</nav>
+
+
+	<nav class="side-navbar">
+		<div class="side-navbar-wrapper">
+
+			<div
+				class="sidenav-header d-flex align-items-center justify-content-center">
+
+				<div class="sidenav-header-inner text-center">
+					<img src="img/avatar-7.jpg" alt="person"
+						class="img-fluid rounded-circle">
+					<h2 class="h5">Tambua Evaristus</h2>
+					<span>software Engineer</span>
+				</div>
+
+				<div class="sidenav-header-logo">
+					<a href="index.html" class="brand-small text-center"> <strong>B</strong><strong
+						class="text-primary">D</strong></a>
+				</div>
+			</div>
+			<!--  Menus-->
+			<div class="main-menu" include-html="tstaff-side-nav">
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<br>
+
+		<h2>
+			<b><center>Register student marks</center></b>
+		</h2>
+		<form id="load-classstuds-form" method="GET" action="#">
+			<select name="cCode" id="classCode">
+				<optgroup label="classes">
+					<option label="F1" value="F1">Form 1</option>
+					<option label="F2" value="F2">Form 2</option>
+				</optgroup>
+			</select>
+			<button type="submit">Load Class</button>
+		</form>
+		<form id="register-marks-form" method="POST" action="#">
+			<label>Subject code</label><input autocapitalize="on" type="text" placeholder="subject code" required="required" id="subCode">
+			<table>
+				<thead>
+					<tr>
+						<th>Student Name</th><th>Registration Number</th><th>Mark</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<button type="submit">Finish</button>
+		</form>
+
+	</div>
+</body>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script
+	src="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/includes.js"></script>
+<script src="/js/register_marks.js"></script>
+<script>includeHTML()</script>
+</html>

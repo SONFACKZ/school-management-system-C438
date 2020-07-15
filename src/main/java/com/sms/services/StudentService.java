@@ -79,8 +79,8 @@ public class StudentService {
 		student.setRegDate(LocalDate.now());
 		
 		studentsRepo.save(student);
-		lg.info("Student {} successfully admitted on {}", 
-				student.getfName()+student.getlName(), LocalDate.now());
+		lg.info("Student {} successfully admitted on {} with admission number {}", 
+				student.getfName()+student.getlName(), LocalDate.now(), regNumber);
 	}
 	
 	public void dismiss(long studentSN) {

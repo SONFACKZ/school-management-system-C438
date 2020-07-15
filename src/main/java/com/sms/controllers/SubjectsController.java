@@ -33,3 +33,4 @@ public class SubjectsController {
 		return new ResponseEntity<>(subjectsService.getAll(), HttpStatus.OK);
 	}
 }
+

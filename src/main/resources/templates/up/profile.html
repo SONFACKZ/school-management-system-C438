@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="/css/fontastic.css">
 
-    <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 
     <link rel="stylesheet" href="/css/grasp_mobile_progress_circle-1.0.0.min.css">
 
@@ -27,10 +27,11 @@
     <title>Document</title>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
-                <div class="brand-text d-none d-md-inline-block"><span></span><strong class="text-primary">School Management System </strong></div></a>
+                <div class="brand-text d-none d-md-inline-block"><span> Student Account</span><strong class="text-primary">School Management System </strong></div></a>
             </div>
           <div class="navbar-header ">
           </div>
@@ -44,43 +45,36 @@
       </nav>
         
 
-
-<div class="container "> 
-
-  <div class=" panel panel-head w3-padding w3-margin-right container-fluid" style="height: 470px;">
-
-    <div class="container w3-display-center"><br>
-      
-      <center> <h1 style="font-size: xx-large; font-weight: bolder; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(59, 42, 42);" >WELCOME TO THE SCHOOL <br><br> MANAGEMENT SYSTEM</h1>
-         <br><br>
-         <h2 style="font-size: xx-large; font-weight: bolder; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(59, 42, 42);" >GET STARTED AS</h2>
-<br>
-<a href="/sms/academic/student/profile">     <button  class="btn btn-success w3-xlarge w3-padding">STUDENT</button></a>
-<a href="/sms/academic/teacher/profile">     <button  class="btn btn-success w3-xlarge w3-padding">STAFF</button></a>
-<a href="/sms/academic/admin/profile">     <button  class="btn btn-success w3-xlarge w3-padding">ADMIN</button></a>
-    </center>
-    </div>
-
-
-
-</div>
-
-</div>
-         
+            <nav class="side-navbar " >
+                <div class="side-navbar-wrapper">
+              
+                  <div class="sidenav-header d-flex align-items-center justify-content-center">
+                    
+                    <div class="sidenav-header-inner text-center"><img src="img/avatar-7.jpg" alt="person" class="img-fluid rounded-circle">
+                      <h2 class="h5">Tambua Evaristus</h2><span>software Engineer</span>
+                    </div>
+                    
+                    <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+                  </div>
+                  <!--  Menus-->
+                  <div class="main-menu" include-html="stud-side-nav">
+                  </div>
+                </div>
+              </nav>
+              
+        
+          <div class="container"style=" padding-right: 100px; padding-left: 150px;"><br>
+            <center> <h1>PROFILE</h1></center><br>
+            
 
 
-
-<!-- end of body -->
-<footer class = "footer bg-dark container-fluid" style="width: 100%;">
-  <div class="container">
-    <p class="text-muted text-center">© Copyright FET-UB <br> Level 400 All Right Reserved 2020 Software Speciality</p>
-  </div>
-</footer>
-   
+          </div>
           
 
 </body>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="/js/front.js"></script>
+<script src="/js/includes.js"></script>
+<script>includeHTML()</script>
 </html>
