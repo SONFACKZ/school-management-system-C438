@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.sms.dtos.NewStudentMarkDTO;
 import com.sms.dtos.StudentMarkDTO;
 import com.sms.exceptions.ResourceNotFound;
 import com.sms.models.Student;
@@ -35,7 +36,7 @@ public class StudentMarksService {
 		this.subjectsRepository = subjectRepository;
 	}
 
-	public void fillMarks(String cCode, String subCode, List<StudentMarkDTO> studSub) {
+	public void fillMarks(String cCode, String subCode, List<NewStudentMarkDTO> studSub) {
 		
 		if(classesRepository.existsByCode(cCode)) {//verify that the specified class exists
 			lg.info("verifying availability of subject {}", subCode);
@@ -70,7 +71,7 @@ public class StudentMarksService {
 //			if(studentDetails.getSclass().getsYear().getSySecond() == schoolYear) 
 			{
 				return studentDetails.getStudSubs()
-						.stream().map(pair -> studentToDTO(pair))
+						.stream().map(pair -> studentToSMDTO(pair))
 						.collect(Collectors.toList());
 			}
 		} else {
@@ -78,7 +79,7 @@ public class StudentMarksService {
 		}
 	}
 	
-	private StudentSubject registerMark(String cCode, String subCode, StudentMarkDTO set) {
+	private StudentSubject registerMark(String cCode, String subCode, NewStudentMarkDTO set) {
 		
 		Optional<Student> student = studentsRepository.findByRegNumber(set.getRegistrationNumber());
 		
@@ -107,11 +108,21 @@ public class StudentMarksService {
 		}
 	}
 
-	private StudentMarkDTO studentToDTO(StudentSubject studSub) {
-		StudentMarkDTO studMark = new StudentMarkDTO();
+	private NewStudentMarkDTO studentToDTO(StudentSubject studSub) {
+		NewStudentMarkDTO studMark = new NewStudentMarkDTO();
 		
 		studMark.setMark(studSub.getMark());
 		studMark.setRegistrationNumber(studSub.getSubject().getTitle());
+		
+		return studMark;
+	}
+	
+	private StudentMarkDTO studentToSMDTO(StudentSubject studSub) {
+		StudentMarkDTO studMark = new StudentMarkDTO();
+		
+		studMark.setMark(studSub.getMark());
+		studMark.setCode(studSub.getSubject().getCode());
+		studMark.setTitle(studSub.getSubject().getTitle());
 		
 		return studMark;
 	}

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sms.dtos.NewStudentMarkDTO;
 import com.sms.dtos.StudentMarkDTO;
 import com.sms.services.StudentMarksService;
 
@@ -24,8 +25,10 @@ public class StudentMarksController {
 	}
 	
 	@PutMapping("/ac/ts/api/student_marks/class/{cCode}/subject/{subCode}/fill")
-	public ResponseEntity<?> fillStudentMarks(@PathVariable String cCode, @PathVariable String subCode,
-			@RequestBody List<StudentMarkDTO> studSub) {
+	public ResponseEntity<?> fillStudentMarks(
+			@PathVariable String cCode,
+			@PathVariable String subCode,
+			@RequestBody List<NewStudentMarkDTO> studSub) {
 		
 		smService.fillMarks(cCode, subCode, studSub);
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -34,6 +37,9 @@ public class StudentMarksController {
 	@GetMapping("/ac/st/api/student_marks/student/{registrationNum}/results/{schoolYear}")
 	public ResponseEntity<List<StudentMarkDTO>> getStudentResults(@PathVariable("schoolYear") String schoolYear,
 			@PathVariable("registrationNum") String regNum) {
-		return ResponseEntity.ok(smService.getResults(schoolYear, regNum));
+//		return ResponseEntity.ok(smService.getResults(schoolYear, regNum));
+		return new ResponseEntity<>(smService.getResults(schoolYear, regNum), HttpStatus.OK);
 	}
 }
+
+

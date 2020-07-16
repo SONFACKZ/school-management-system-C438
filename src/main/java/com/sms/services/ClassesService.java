@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.sms.dtos.ClassStudentDTO;
 import com.sms.dtos.NewClassData;
 import com.sms.dtos.StudentFeePaymentDTO;
+import com.sms.exceptions.ResourceNotFound;
 import com.sms.models.SClass;
 import com.sms.models.SchoolYear;
 import com.sms.models.Student;
@@ -50,22 +52,31 @@ public class ClassesService {
 		classesRepository.save(newClass);
 	}
 
-	public List<StudentFeePaymentDTO> getAllStudents(String code) {
+	public List<ClassStudentDTO> getAllStudents(String code) {
 		return getForYear(code, "2020")
 				.getStudents()
 				.stream()
-				.map(student -> studentToDTO(student))
+				.map(student -> studentToCSDTO(student))
 				.collect(Collectors.toList());
 	}
 	
 	private SClass getForYear(String code, String syFirst) {
 		Optional<SClass> sClass = classesRepository.findByCodeAndYear_syFirst(code, syFirst);
 		
-		return sClass.get();
+		if(sClass.isPresent())
+			return sClass.get();
+		else
+			throw new ResourceNotFound("Class: "+code);
 	}
 	private StudentFeePaymentDTO studentToDTO(Student student) {
 		StudentFeePaymentDTO stud = new StudentFeePaymentDTO();
 		stud.setRegistrationNumber(student.getRegNumber());	
+		return stud;
+	}
+	private ClassStudentDTO studentToCSDTO(Student student) {
+		ClassStudentDTO stud = new ClassStudentDTO();
+		stud.setName(String.format("%s %s", student.getfName(), student.getlName()));
+		stud.setRegNum(student.getRegNumber());
 		return stud;
 	}
 }

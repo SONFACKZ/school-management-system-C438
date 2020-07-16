@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+//	$("#add-class-form").on('submit', function(event) {
+//		event.preventDefault();
+//
+//		console.log("working...");
+//		submitClass();
+//	});
+
 	// ------------------------------------------------------- //
 	// Custom Scrollbar
 	// ------------------------------------------------------ //
